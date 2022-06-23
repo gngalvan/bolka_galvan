@@ -1,0 +1,6 @@
+.titulo{
+    display: flex;
+    justify-content: center;
+    color: black;
+    padding-top: 100px;
+}

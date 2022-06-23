@@ -1,44 +1,55 @@
 import logo from './assets/logo.png';
+import CartWidget from './CartWidget';
 import './Navbar.css';
 
 function Navbar() {
   return (
-    <header>
-         <nav>
-            <div>
-                <a href="index.html">
-                    <img src={logo} alt="logo" />
-                </a>
-            </div>
-            <ul class="menu">
-                <li>
-                    <a href="index.html">inicio</a>
-                </li>
-                <li><a href="">productos</a>
-                    <ul class="subMenu">
-                        <li>
-                            <a href="">remeras</a>
+    <div class="container-fluid">
+        <nav className="navbar row navbar-expand-lg navbar-dark bg-dark">
+            <div className="col-12">
+                <a className="navbar-brand mx-auto" href="../index.html"><img src={logo} alt="logo"/></a>
+                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+                <div className="collapse navbar-collapse" id="navbarScroll">
+                    <ul className="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li className="nav-item">
+                                <a className="nav-link active sub" aria-current="page" href="index.html">INICIO</a>
                         </li>
-                        <li>
-                            <a href="">musculosas</a>
+                        <li className="nav-item ">
+                                <a className="nav-link  sub" href="pages/contacto.html">CONTACTO</a>
                         </li>
-                        <li>
-                            <a href="">ofertas</a>
+                        <li className="nav-item dropdown">
+                                <a className="nav-link dropdown-toggle" href="pages/productos.html" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    PRODUCTOS
+                                </a>
+                                <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                    <li><a className="dropdown-item" href="pages/productos/remeras.html">REMERAS</a></li>
+                                    <li><a className="dropdown-item" href="pages/productos/buzos.html">BUZOS</a></li>
+                                    <li><a className="dropdown-item" href="pages/productos.html">TODOS LOS PRODUCTOS</a></li>
+                                    <li>
+                                        <hr className="dropdown-divider"/>
+                                    </li>
+                                    <li><a className="dropdown-item" href="pages/productos/ofertas.html">OFERTAS</a></li>
+                                </ul>
+                        </li>
+                        <li className="nav-item">
+                                <a className="nav-link sub" href="#pie">SEGUINOS</a>
                         </li>
                     </ul>
-                </li>
-                <li>
-                    <a href="">nosotros</a>
-                </li>
-                <li>
-                    <a href="">contacto</a>
-                </li>
-                <li>
-                    <a href="#pie">seguinos</a>
-                </li>
-            </ul>
+                    <div className="containerCart">
+                    <form>
+                        <CartWidget />
+                    </form>
+                    </div>
+                </div>
+                
+            </div>
+
         </nav>
-    </header>
+    </div>
   );
 }
 
