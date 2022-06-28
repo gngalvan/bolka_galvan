@@ -5,7 +5,7 @@ import cart from './assets/cart.png';
 function CartWidget() {
   return (
     <div>
-        <img className="cartIcon" src={cart}/>
+        <img className="cartIcon" alt="icon-carrito" src={cart}/>
     </div>    
   );
 }

@@ -4,7 +4,7 @@ import './Navbar.css';
 
 function Navbar() {
   return (
-    <div class="container-fluid">
+    <div className="container-fluid">
         <nav className="navbar row navbar-expand-lg navbar-dark bg-dark">
             <div className="col-12">
                 <a className="navbar-brand mx-auto" href="../index.html"><img src={logo} alt="logo"/></a>

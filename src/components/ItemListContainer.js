@@ -1,8 +1,9 @@
+import ItemCount from './ItemCount';
 import './ItemListContainer.css';
 
 function ItemListContainer() {
   return (
-    <h1 className="titulo">Productos destacados</h1>
+    <ItemCount stock={20} />
   );
 }
 
