@@ -1,9 +1,10 @@
 import ItemCount from './ItemCount';
+import ItemList from './ItemList';
 import './ItemListContainer.css';
 
 function ItemListContainer() {
   return (
-    <ItemCount stock={20} />
+    <ItemList />
   );
 }
 

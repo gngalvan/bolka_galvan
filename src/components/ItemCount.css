@@ -1,3 +1,9 @@
 .contador{
-    padding-top: 100px;
+    padding-top: 10px;
+}
+.contador h3{
+    font-size: 1em;
+}
+.contador p{
+    font-size: 0.8em;
 }

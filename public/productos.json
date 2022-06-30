@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "nombre": "Ayanami Rei - Evangelion",
+        "precio": 1500,
+        "imagen": "rei.png",
+        "categoria": "Remera",
+        "stock": "5"
+    },
+    {
+        "id": 2,
+        "nombre": "Remera Rick & Morty",
+        "precio": 1500,
+        "imagen": "rickandmorty.png",
+        "categoria": "Remera",
+        "stock": "3"
+    },
+    {
+        "id": 3,
+        "nombre": "Remera 'Dignidad'",
+        "precio": 1500,
+        "imagen": "dignidad.png",
+        "categoria": "Remera",
+        "stock": "7"
+    },
+    {
+        "id": 4,
+        "nombre": "Remera 'Sin cara'",
+        "precio": 1500,
+        "imagen": "sincara.png",
+        "categoria": "Remera",
+        "stock": "5"
+    }
+]

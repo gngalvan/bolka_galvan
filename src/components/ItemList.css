@@ -1,0 +1,8 @@
+.cuerpo{
+    padding-top: 100px;
+}
+.catalogo{
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 20px;
+}
