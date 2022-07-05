@@ -5,6 +5,7 @@
         "precio": 1500,
         "imagen": "rei.png",
         "categoria": "Remera",
+        "descripcion": "Remera de Evangelion",
         "stock": "5"
     },
     {
@@ -13,6 +14,7 @@
         "precio": 1500,
         "imagen": "rickandmorty.png",
         "categoria": "Remera",
+        "descripcion": "Remera de Rick & Morty",
         "stock": "3"
     },
     {
@@ -21,6 +23,7 @@
         "precio": 1500,
         "imagen": "dignidad.png",
         "categoria": "Remera",
+        "descripcion": "Remera de Los Simpson",
         "stock": "7"
     },
     {
@@ -29,6 +32,7 @@
         "precio": 1500,
         "imagen": "sincara.png",
         "categoria": "Remera",
+        "descripcion": "Remera de El viaje de Chihiro",
         "stock": "5"
     }
 ]
