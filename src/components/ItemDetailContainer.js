@@ -1,19 +1,32 @@
 import { useState, useEffect } from 'react';
 import ItemDetail from './ItemDetail';
-import './ItemListDetailContainer.css';
+import './ItemDetailContainer.css';
+import { useParams } from 'react-router-dom';
 
 function ItemDetailContainer() {
 
-  const [productosDetailFecth, setProductosDetailFetch] = useState([]);
+  const [productosDetailFecth, setProductosDetailFetch] = useState({});
+  const {productId} = useParams()
 
-  useEffect(function fetchProductosDetail(){
-    fetch('productos.json')
-    .then((resp) => resp.json())
-    .then((productos) => setProductosDetailFetch(productos))
-  }, 2000)
+  useEffect(() => {
+    const getItems = new Promise((resolve) =>{
+      setTimeout(() => {
+        fetch('productos.json')
+        .then(response => response.json())
+        .then((result) => {
+          const myProducts = result.find((product) => product.id == productId);
+          resolve(myProducts);
+        });
+      }, 2000);
+    });
+
+    getItems.then((res) =>{
+      setProductosDetailFetch(res);
+    });
+  }, []);
 
   return (
-    <ItemDetail productos={productosDetailFecth} />
+    <ItemDetail {...productosDetailFecth} />
   );
 }
 

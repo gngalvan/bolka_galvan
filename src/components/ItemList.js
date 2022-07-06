@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import Item from './Item/Item';
+import ItemDetail from './ItemDetail';
 import './ItemList.css';
 
 
@@ -12,7 +12,7 @@ function ItemList(props) {
         <p>Elegí tus productos desde la lista:</p>
       </div>
       <div className='catalogo'>
-        {props.productos.map(producto => <Item key={producto.id} product={producto.nombre} price={producto.precio} stock={producto.stock} imagen={producto.imagen} />)}
+        {props.productos.map(producto => <Item id={producto.id} product={producto.nombre} price={producto.precio} stock={producto.stock} imagen={producto.imagen} />)}
       </div>
     </section>
   );
