@@ -1,13 +1,14 @@
+import { Link } from 'react-router-dom';
 import logo from './assets/logo.png';
 import CartWidget from './CartWidget';
 import './Navbar.css';
 
-function Navbar() {
+function Navbar(props) {
   return (
     <div className="container-fluid">
         <nav className="navbar row navbar-expand-lg navbar-dark bg-dark">
             <div className="col-12">
-                <a className="navbar-brand mx-auto" href="../index.html"><img src={logo} alt="logo"/></a>
+                <a className="navbar-brand mx-auto" href="/"><img src={logo} alt="logo"/></a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -26,9 +27,9 @@ function Navbar() {
                                     PRODUCTOS
                                 </a>
                                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                    <li><a className="dropdown-item" href="pages/productos/remeras.html">REMERAS</a></li>
-                                    <li><a className="dropdown-item" href="pages/productos/buzos.html">BUZOS</a></li>
-                                    <li><a className="dropdown-item" href="pages/productos.html">TODOS LOS PRODUCTOS</a></li>
+                                    <li><Link className="dropdown-item" to={`/category/${props.categoria}`}>REMERAS</Link></li>
+                                    <li><Link className="dropdown-item" to={`/category/${props.categoria}`}>BUZOS</Link></li>
+                                    <li><Link className="dropdown-item" to={'/'}>TODOS LOS PRODUCTOS</Link></li>
                                     <li>
                                         <hr className="dropdown-divider"/>
                                     </li>

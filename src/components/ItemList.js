@@ -11,7 +11,7 @@ function ItemList(props) {
         <p>Elegí tus productos desde la lista:</p>
       </div>
       <div className='catalogo'>
-        {props.productos.map(producto => <Item id={producto.id} product={producto.nombre} price={producto.precio} stock={producto.stock} imagen={producto.imagen} />)}
+        {props.productos.map(producto => <Item id={producto.id} {...producto} />)}
       </div>
     </section>
   );

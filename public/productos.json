@@ -34,5 +34,41 @@
         "categoria": "Remera",
         "descripcion": "Remera de El viaje de Chihiro",
         "stock": "5"
+    },
+    {
+        "id": "5",
+        "nombre": "Akira",
+        "precio": 1500,
+        "imagen": "akira.png",
+        "categoria": "Buzo",
+        "descripcion": "Buzo Akira",
+        "stock": "5"
+    },
+    {
+        "id": "6",
+        "nombre": "Bakugo - BNHA",
+        "precio": 1500,
+        "imagen": "bakugo.png",
+        "categoria": "Buzo",
+        "descripcion": "Buzo Akira",
+        "stock": "3"
+    },
+    {
+        "id": "7",
+        "nombre": "Carpsule CORP",
+        "precio": 1500,
+        "imagen": "capsulecorp.png",
+        "categoria": "Buzo",
+        "descripcion": "Buzo Capsule CORP",
+        "stock": "7"
+    },
+    {
+        "id": "8",
+        "nombre": "Tokyo Revers",
+        "precio": 1500,
+        "imagen": "tokyorevenger.png",
+        "categoria": "Buzo",
+        "descripcion": "Buzo Tokyo Revengers",
+        "stock": "5"
     }
 ]
