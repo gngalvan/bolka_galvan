@@ -11,10 +11,10 @@ function ItemDetailContainer() {
   useEffect(() => {
     const getItems = new Promise((resolve) =>{
       setTimeout(() => {
-        fetch('productos.json')
+        fetch('http://localhost:3000/productos.json')
         .then(response => response.json())
         .then((result) => {
-          const myProducts = result.find((product) => product.id == productId);
+          const myProducts = result.find((product) => product.id === productId);
           resolve(myProducts);
         });
       }, 2000);
@@ -27,7 +27,7 @@ function ItemDetailContainer() {
 
   return (
     <ItemDetail {...productosDetailFecth} />
-  );
+  );  
 }
 
 export default ItemDetailContainer;

@@ -23,7 +23,7 @@ function ItemCount({ stock }) {
     
         <>
             <div className="contador">
-                <h3> {num} </h3>
+                <h3>{num}</h3>
                 <p>Stock disponible: {stock}</p>
                 <button onClick={suma}>+</button>
                 <button onClick={resta}>-</button>

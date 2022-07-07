@@ -1,5 +1,4 @@
 import Item from './Item/Item';
-import ItemDetail from './ItemDetail';
 import './ItemList.css';
 
 
