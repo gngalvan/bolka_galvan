@@ -20,6 +20,11 @@ function ItemCount({ stock }) {
             setNum(num - 1)
         }
     } 
+    const [newStock, setNewStock] = useState()
+    const stockHandler = () => {
+        setNewStock(num)
+        console.log(newStock);
+    }
     
 
     return (
@@ -28,8 +33,8 @@ function ItemCount({ stock }) {
             <div className="contador">
                 <h3>{num}</h3>
                 <p className="textoStock">Stock disponible: {stock}</p>
-                <button onClick={resta}>-</button>
-                <button onClick={suma}>+</button>
+                <button onClick={resta, stockHandler} >-</button>
+                <button onClick={suma, stockHandler}>+</button>
             </div>
             <button className="agregar" onClick={ () => setCountState(false) }  >Agregar</button>
         </>
