@@ -8,7 +8,7 @@ function Navbar(props) {
     <div className="container-fluid">
         <nav className="navbar row navbar-expand-lg navbar-dark bg-dark">
             <div className="col-12">
-                <a className="navbar-brand mx-auto" href="/"><img src={logo} alt="logo"/></a>
+                <Link className="navbar-brand mx-auto" to="/"><img src={logo} alt="logo"/></Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -17,27 +17,27 @@ function Navbar(props) {
                 <div className="collapse navbar-collapse" id="navbarScroll">
                     <ul className="navbar-nav mx-auto my-2 my-lg-0 navbar-nav-scroll">
                         <li className="nav-item">
-                                <a className="nav-link active sub" aria-current="page" href="index.html">INICIO</a>
+                                <Link className="nav-link active sub" aria-current="page" to="/">INICIO</Link>
                         </li>
                         <li className="nav-item ">
-                                <a className="nav-link  sub" href="pages/contacto.html">CONTACTO</a>
+                                <Link className="nav-link  sub" to="/">CONTACTO</Link>
                         </li>
                         <li className="nav-item dropdown">
-                                <a className="nav-link dropdown-toggle" href="pages/productos.html" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <Link className="nav-link dropdown-toggle" to="/" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     PRODUCTOS
-                                </a>
+                                </Link>
                                 <ul className="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-                                    <li><Link className="dropdown-item" to={`/category/${props.categoria}`}>REMERAS</Link></li>
-                                    <li><Link className="dropdown-item" to={`/category/${props.categoria}`}>BUZOS</Link></li>
+                                    <li><Link className="dropdown-item" to={`/category/Remera`}>REMERAS</Link></li>
+                                    <li><Link className="dropdown-item" to={`/category/Buzo`}>BUZOS</Link></li>
                                     <li><Link className="dropdown-item" to={'/'}>TODOS LOS PRODUCTOS</Link></li>
                                     <li>
                                         <hr className="dropdown-divider"/>
                                     </li>
-                                    <li><a className="dropdown-item" href="pages/productos/ofertas.html">OFERTAS</a></li>
+                                    <li><Link className="dropdown-item" to="/">OFERTAS</Link></li>
                                 </ul>
                         </li>
                         <li className="nav-item">
-                                <a className="nav-link sub" href="#pie">SEGUINOS</a>
+                                <Link className="nav-link sub" to="/">SEGUINOS</Link>
                         </li>
                     </ul>
                     <div className="containerCart">

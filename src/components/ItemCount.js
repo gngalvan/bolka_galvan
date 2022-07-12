@@ -1,8 +1,10 @@
 import { useState } from "react";
+
 import './ItemCount.css';
 
 function ItemCount({ stock }) {
     const [num, setNum] = useState(0);   
+    const [countState, setCountState] = useState(true);
     
     const suma = () => {
         if(num<stock){
@@ -17,10 +19,11 @@ function ItemCount({ stock }) {
         if(num>0){
             setNum(num - 1)
         }
-    }
+    } 
+    
 
     return (
-    
+        countState ? (
         <>
             <div className="contador">
                 <h3>{num}</h3>
@@ -28,9 +31,9 @@ function ItemCount({ stock }) {
                 <button onClick={resta}>-</button>
                 <button onClick={suma}>+</button>
             </div>
-            <button className="agregar">Agregar</button>
+            <button className="agregar" onClick={ () => setCountState(false) }  >Agregar</button>
         </>
-
+        ) : ("")
   );
 }
 

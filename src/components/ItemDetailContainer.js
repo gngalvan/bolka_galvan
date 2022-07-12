@@ -11,7 +11,7 @@ function ItemDetailContainer() {
   useEffect(() => {
     const getItems = new Promise((resolve) =>{
       setTimeout(() => {
-        fetch('http://localhost:3000/productos.json')
+        fetch('/productos.json')
         .then(response => response.json())
         .then((result) => {
           const myProducts = result.find((product) => product.id === productId);

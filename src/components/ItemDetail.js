@@ -1,5 +1,6 @@
 import './ItemDetail.css';
 import ItemCount from './ItemCount';
+import { Link } from 'react-router-dom';
 
 function ItemDetail(props) {
     
@@ -10,6 +11,7 @@ function ItemDetail(props) {
             <span>{props.descripcion}</span>
             <p className='precio'>{`$${props.precio}`}</p>
             <ItemCount stock={props.stock} />
+            <Link to={`/cart`}><button className="agregar">Terminar compra</button></Link>
         </div>
     );
 }

@@ -6,7 +6,7 @@ import { useParams } from 'react-router-dom';
 function ItemListContainer() {
 
   const [productosFecth, setProductosFetch] = useState([]);
-  // const {categoryId} = useParams();
+  const {categoryId} = useParams();
   
   // useEffect(() => {
   //   const getProducts = new Promise((resolve) => {
@@ -27,10 +27,10 @@ function ItemListContainer() {
   // });
 
   useEffect(function fetchProductos(){
-    fetch('productos.json')
+    fetch('/productos.json')
     .then((resp) => resp.json())
-    .then((productos) => setProductosFetch(productos))
-  })
+    .then((productos) => setProductosFetch(categoryId ? productos.filter((i)=>i.categoria === categoryId) : productos ))
+  },[categoryId])
 
   
 
