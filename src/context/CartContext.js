@@ -4,7 +4,7 @@ export const CartContext = createContext({})
 
 const {Provider} = CartContext
 
-export const CartProvider = ({ defaultValue = [] , chilren }) => {
+export const CartProvider = ({ defaultValue = [] , children }) => {
 
     const [cart, setCart] = useState(defaultValue);
 
@@ -51,7 +51,7 @@ export const CartProvider = ({ defaultValue = [] , chilren }) => {
 
     return  (
         <Provider value={context}>
-            {chilren}
+            {children}
         </Provider>
     )
 }

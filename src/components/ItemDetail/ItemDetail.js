@@ -5,15 +5,17 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
 
 function ItemDetail(props) {
-    const { nombre, id, descripcion, precio, imagen, stock} = props.item;
+    
+    const { nombre, id, descripcion, precio, imagen, stock} = props;
     const { addToCart } = useContext(CartContext);
 
     const [purchaseCompleted, setPurchaseCompleted] = useState(false);
 
     const onAdd = (num) => {
         setPurchaseCompleted(true);
-        addToCart(props.item, num);
+        addToCart(props, num);
     }
+
 
     return (
         <div className='detail'>
@@ -21,11 +23,17 @@ function ItemDetail(props) {
             <h4>{nombre}</h4>
             <span>{descripcion}</span>
             <p className='precio'>{`$${precio}`}</p>
-            {purchaseCompleted ? (
-                <Link to="/cart"></Link>
-            ) : <ItemCount stock={stock} onAdd={onAdd} /> }            
-            {/* <ItemCount onAdd={onAdd} /> */}
-            <Link to={`/cart`}><button className="agregar">Terminar compra</button></Link>
+            {!purchaseCompleted ? (
+                <ItemCount stock={stock} onAdd={onAdd} />
+            ) :
+            ( 
+            <>
+            <Link to={`/cart`}>
+            <button className="agregar">Terminar compra</button>
+            {console.log(purchaseCompleted)}
+            </Link>
+            </>
+            )}
         </div>
     );
 }

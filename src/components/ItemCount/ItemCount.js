@@ -3,8 +3,8 @@ import { useState } from "react";
 
 import './ItemCount.css';
 
-function ItemCount({ onAdd, props }) {
-    const stock = props.stock;
+function ItemCount({ onAdd, stock }) {
+    // const stock = props.stock;
 
     const [num, setNum] = useState(0);   
 
