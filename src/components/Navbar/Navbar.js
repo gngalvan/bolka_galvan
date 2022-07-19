@@ -40,11 +40,11 @@ function Navbar() {
                                 <Link className="nav-link sub" to="/">SEGUINOS</Link>
                         </li>
                     </ul>
+                    <Link to={`/cart`}>
                     <div className="containerCart">
-                    <form>
                         <CartWidget />
-                    </form>
                     </div>
+                    </Link>
                 </div>
                 
             </div>

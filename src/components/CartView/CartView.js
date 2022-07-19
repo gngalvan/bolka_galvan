@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartEmpty from "../CartEmpty/CartEmpty";
 import CartProduct from "../CartProduct/CartProduct";
+import './CartView.css';
 
 
 
@@ -14,18 +15,17 @@ export default function CartView() {
   useEffect(()=>{
    cart.length ? setEmptyCart(false) : setEmptyCart(true)
    settotalPrice(suma())
-
-},[cart])
+  },[cart])
 
 
   return (
     <>
+    <div className="cartView">
       <h1>Carrito</h1>
-      { emptyCart ?(< CartEmpty />)  :(cart.map((item) => {
+      { emptyCart ?(< CartEmpty />):(cart.map((item) => {
           return <CartProduct item={item} key={item.id} removeFromCart={removeFromCart}/>})
         ) 
       }
-    
       <h3>Total a pagar: ${totalPrice}</h3> 
       <button onClick={()=>clearCart()}>
           Limpiar carrito
@@ -33,7 +33,7 @@ export default function CartView() {
       <button>
           Terminar compra
       </button>
-
+    </div>
     </>
   );
 }

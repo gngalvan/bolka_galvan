@@ -4,15 +4,17 @@ export const CartContext = createContext({})
 
 const {Provider} = CartContext
 
-export const CartProvider = ({ defaultValue = [] , children }) => {
+export const CartProvider = ({ children }) => {
 
-    const [cart, setCart] = useState(defaultValue);
+    const [cart, setCart] = useState([]);
 
     const clearCart = () => {
         setCart([]);
     }
 
     const addToCart = (item, quantity) => {
+        console.log(item)
+        console.log(quantity)
         if (isInCart(item.id)) {
             const newCart = [...cart]
             for( const element of newCart){
@@ -26,7 +28,7 @@ export const CartProvider = ({ defaultValue = [] , children }) => {
             [
                 ...cart,
                 {
-                    item: item,
+                    ...item,
                     quantity: quantity
                 }
             ]
@@ -34,19 +36,25 @@ export const CartProvider = ({ defaultValue = [] , children }) => {
     }
 
     const isInCart = (id) => {
-        return cart.find((element) => element.item.id === id);
+        return cart.find((element) => element.id === id);
     }
 
     const removeFromCart = (id) => {
-        const newCart = [...cart].filter(element => element.item.id !== id);
+        const newCart = [...cart].filter(element => element.id !== id);
         setCart(newCart)
+    }
+
+    const suma = () => {
+        console.log(cart)
+        return cart.reduce((acc, prod) => acc += prod.precio*prod.quantity, 0 )
     }
 
     const context = {
         cart,
         clearCart,
         addToCart,
-        removeFromCart
+        removeFromCart,
+        suma
     }
 
     return  (

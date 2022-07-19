@@ -30,7 +30,7 @@ function ItemDetail(props) {
             <>
             <Link to={`/cart`}>
             <button className="agregar">Terminar compra</button>
-            {console.log(purchaseCompleted)}
+            
             </Link>
             </>
             )}
