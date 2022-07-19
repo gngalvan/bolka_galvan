@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import logo from './assets/logo.png';
-import CartWidget from './CartWidget';
+import logo from '../assets/logo.png';
+import CartWidget from '../CartWidget/CartWidget';
 import './Navbar.css';
 
-function Navbar(props) {
+function Navbar() {
   return (
     <div className="container-fluid">
         <nav className="navbar row navbar-expand-lg navbar-dark bg-dark">

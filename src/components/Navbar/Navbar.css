@@ -15,7 +15,7 @@
 	  display: none; }
 	.container-fluid .navbar .col-12 {
 	  display: flex;
-	  justify-content: end;
+	  /* justify-content: end; */
 	  width: 87%; }
 	  .container-fluid .navbar .col-12 .collapse .navbar-nav .dropdown:hover .dropdown-menu {
 		display: flex;

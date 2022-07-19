@@ -1,10 +1,13 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+
 
 import './ItemCount.css';
 
-function ItemCount({ stock }) {
+function ItemCount({ onAdd, props }) {
+    const stock = props.stock;
+
     const [num, setNum] = useState(0);   
-    const [countState, setCountState] = useState(true);
+
     const [newStock, setNewStock] = useState("");
 
     const stockHandler = () => {
@@ -33,17 +36,18 @@ function ItemCount({ stock }) {
     
 
     return (
-        countState ? (
+
         <>
             <div className="contador">
                 <h3>{num}</h3>
                 <p className="textoStock">Stock disponible: {stock}</p>
                 <button onClick={resta}>-</button>
                 <button onClick={suma}>+</button>
+                <button className="agregar" onClick={() => onAdd(num)} >Agregar</button>
             </div>
-            <button className="agregar" onClick={ () => setCountState(false) }  >Agregar</button>
+
         </>
-        ) : ("")
+
   );
 }
 

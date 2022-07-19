@@ -1,6 +1,6 @@
 
 import './CartWidget.css';
-import cart from './assets/cart.png';
+import cart from '../assets/cart.png';
 
 function CartWidget() {
   return (
