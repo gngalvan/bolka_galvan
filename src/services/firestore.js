@@ -1,4 +1,3 @@
-import { async } from "@firebase/util";
 import { initializeApp } from "firebase/app";
 import { collection, getDocs, getFirestore } from "firebase/firestore";
 
@@ -13,7 +12,6 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-const db = getFirestore(app);
 
 export function testDB(){
     console.log(db);
@@ -28,4 +26,4 @@ export async function getAllProducts(){
     return(dataProducts);
 }
 
-export default db;
+export const db = getFirestore(app);

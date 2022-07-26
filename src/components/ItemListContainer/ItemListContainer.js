@@ -3,33 +3,37 @@ import ItemList from '../ItemList/ItemList';
 import './ItemListContainer.css';
 import { useParams } from 'react-router-dom';
 import { getFirestore, doc, getDoc, Firestore } from 'firebase/firestore';
-import { getAllProducts } from '../services/firestore';
+import { db } from "../../services/firestore";
+import {
+  getDocs,
+  collection,
+  where,
+  query,
+} from "firebase/firestore";
 
 function ItemListContainer() {
 
   const [productosFecth, setProductosFetch] = useState([]);
   const {categoryId} = useParams();
 
-  useEffect(function fetchProductos(){
-    // fetch('/productos.json')
-    // .then((resp) => resp.json())
-    console.log(getAllProducts())
-    getAllProducts().then((productos) => setProductosFetch(categoryId ? productos.filter((i)=>i.categoria === categoryId) : productos ))
-  },[categoryId])
 
-  // useEffect(() => {
-  //   const db = getFirestore();
+  const getData = async (category) =>{
+    try {
+       
+      const document = category ? query(collection(db,"bolka"),where('category','==',category))
+                                : collection(db,"bolka")
+      const col = await getDocs(document)
+      const result = col.docs.map((doc) => doc = { id:doc.id,...doc.data()})
+      setProductosFetch(result)
+       
+    } catch (error) {
+      console.log(error)
+    }
+  } 
 
-  //   const productRef = doc(db, "bolka");
-
-  //   getDoc(productRef).then((snapshot) => {
-  //     setProductosFetch(categoryId ? snapshot.filter((i)=>i.categoria === categoryId) : snapshot )
-  //     // if(snapshot.exist()){
-  //     // setProductosFetch([{...snapshot.data()}])
-    
-  //     })
-  //   }, [categoryId])
-  
+  useEffect(() => {
+    getData(categoryId)
+  }, [categoryId])
 
   return (
     <ItemList productos={productosFecth} />
