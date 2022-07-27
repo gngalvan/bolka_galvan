@@ -12,35 +12,36 @@ function ItemDetailContainer() {
 
 
 
-  useEffect(() => {
-    const getItems = new Promise((resolve) =>{
-      setTimeout(() => {
-        fetch('/productos.json')
-        .then(response => response.json())
-        .then((result) => {
-          const myProducts = result.find((product) => product.id === productId);
-          resolve(myProducts);
-        });
-      }, 2000);
-    });
-
-    getItems.then((res) =>{
-      setProductosDetailFetch(res);
-    });
-  }, []);
-
-
   // useEffect(() => {
-  //   const db = getFirestore();
+  //   const getItems = new Promise((resolve) =>{
+  //     setTimeout(() => {
+  //       fetch('/productos.json')
+  //       .then(response => response.json())
+  //       .then((result) => {
+  //         const myProducts = result.find((product) => product.id === productId);
+  //         resolve(myProducts);
+  //       });
+  //     }, 2000);
+  //   });
 
-  //   const productRef = doc(db, "bolka");
+  //   getItems.then((res) =>{
+  //     setProductosDetailFetch(res);
+  //   });
+  // }, []);
 
-  //   getDoc(productRef).then((snapshot) => {
-  //     if(snapshot.exist()){
-  //       setProductosDetailFetch({...snapshot.data()})
-  //     }
-  //   })
-  // }, [])
+
+  useEffect(() => {
+    const db = getFirestore();
+
+    const productRef = doc(db, "productos");
+
+    getDoc(productRef).then((snapshot) => {
+      if(snapshot.exist()){
+        setProductosDetailFetch({ id: snapshot.id, ...snapshot.data() });
+        console.log(snapshot.id)
+      }
+    })
+  }, [productId])
 
   return (
     <ItemDetail {...productosDetailFecth} />
