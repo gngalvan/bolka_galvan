@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartEmpty from "../CartEmpty/CartEmpty";
 import CartProduct from "../CartProduct/CartProduct";
+import Checkout from "../Checkout/Checkout";
 import './CartView.css';
 
 
@@ -9,6 +10,7 @@ import './CartView.css';
 export default function CartView() {
   const { cart, removeFromCart,suma,clearCart } = useContext(CartContext);
   const [emptyCart, setEmptyCart] = useState(true);
+  const [modal, setModal] = useState(false);
   const [totalPrice, settotalPrice] = useState(0);
 
 
@@ -17,6 +19,9 @@ export default function CartView() {
    settotalPrice(suma())
   },[cart])
 
+  const handleClose = () => {
+    setModal(false)
+  }
 
   return (
     <>
@@ -30,9 +35,10 @@ export default function CartView() {
       <button onClick={()=>clearCart()}>
           Limpiar carrito
       </button>
-      <button>
+      <button  onClick={()=>setModal(true)}>
           Terminar compra
       </button>
+      {modal && <Checkout handleClose={handleClose} total={totalPrice} clearCart={clearCart}/>}
     </div>
     </>
   );

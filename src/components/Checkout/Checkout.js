@@ -1,7 +1,9 @@
 import { useContext, createRef, useState } from "react";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { cartContext } from "../../context/CartContext";
+import { CartContext } from "../../context/CartContext";
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 import { db } from "../../services/firestore";
 import {
   addDoc,
@@ -12,7 +14,7 @@ import {
 } from "firebase/firestore";
 
 export default function Checkout({ handleClose, total,clearCart }) {
-  const { cart } = useContext(cartContext);
+  const { cart } = useContext(CartContext);
   const form = createRef();
   const nav = useNavigate();
   const [buyerData, setBuyerData] = useState({
