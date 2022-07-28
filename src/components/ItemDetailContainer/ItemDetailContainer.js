@@ -2,15 +2,12 @@ import { useState, useEffect } from 'react';
 import ItemDetail from '../ItemDetail/ItemDetail'
 import './ItemDetailContainer.css';
 import { useParams } from 'react-router-dom';
-import { getFirestore, doc, getDoc } from 'firebase/firestore';
+import { getFirestore, doc, getDoc, collection } from 'firebase/firestore';
 
 function ItemDetailContainer() {
 
   const [productosDetailFecth, setProductosDetailFetch] = useState({});
-  const {productId} = useParams()
-
-
-
+  const {id} = useParams()
 
   // useEffect(() => {
   //   const getItems = new Promise((resolve) =>{
@@ -33,15 +30,25 @@ function ItemDetailContainer() {
   useEffect(() => {
     const db = getFirestore();
 
-    const productRef = doc(db, "productos");
-
+    const productsCollectionRef = collection(db, "productos")
+    const productRef = doc(productsCollectionRef);
+    
     getDoc(productRef).then((snapshot) => {
-      if(snapshot.exist()){
-        setProductosDetailFetch({ id: snapshot.id, ...snapshot.data() });
-        console.log(snapshot.id)
+      if(snapshot.exists()){
+        setProductosDetailFetch({id: snapshot.id, ...snapshot.data()})
+       
       }
     })
-  }, [productId])
+
+    // getDoc(productRef).then((snapshot) => {
+    //   snapshot.id = productId
+    //   if(snapshot.exist()){
+    //     setProductosDetailFetch({ ...snapshot.data() });
+        
+    //     console.log(snapshot.id)
+    //   }
+    }, [id])
+
 
   return (
     <ItemDetail {...productosDetailFecth} />
