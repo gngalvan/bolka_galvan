@@ -3,6 +3,7 @@ import ItemCount from '../ItemCount/ItemCount';
 import { Link } from 'react-router-dom';
 import { useContext, useState } from 'react';
 import { CartContext } from '../../context/CartContext';
+import Button from 'react-bootstrap/Button';
 
 function ItemDetail(props) {
     
@@ -29,8 +30,7 @@ function ItemDetail(props) {
             ( 
             <>
             <Link to={`/cart`}>
-            <button className="agregar">Terminar compra</button>
-            
+            <Button variant="secondary">Terminar compra</Button>            
             </Link>
             </>
             )}

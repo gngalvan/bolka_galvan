@@ -7,12 +7,7 @@
 .textoStock{
     font-size: 1em;
 }
-.agregar{
-    width: 60px;
-    font-size: 0.8em;
-}
 .contador button{
     border-radius: 5%;
     margin: 5px;
-    width: 25px;
 }
