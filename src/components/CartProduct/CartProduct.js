@@ -1,3 +1,5 @@
+import Button from 'react-bootstrap/Button';
+
 export default function CartProduct({item,removeFromCart}) {
   return (
     <>
@@ -5,7 +7,7 @@ export default function CartProduct({item,removeFromCart}) {
         <ul>Precio Unitario: ${item.precio}</ul>
         <ul>Cantidad:{item.quantity}</ul>
         <ul>Precio total: ${item.precio * item.quantity}</ul>
-        <button onClick={() => removeFromCart(item.id)}>X</button>
+        <Button variant='secondary' onClick={() => removeFromCart(item.id)}>X</Button>
     </>
   );
 }

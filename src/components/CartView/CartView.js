@@ -1,4 +1,5 @@
 import { useContext, useEffect, useState } from "react";
+import Button from 'react-bootstrap/Button';
 import { CartContext } from "../../context/CartContext";
 import CartEmpty from "../CartEmpty/CartEmpty";
 import CartProduct from "../CartProduct/CartProduct";
@@ -32,12 +33,12 @@ export default function CartView() {
         ) 
       }
       <h3>Total a pagar: ${totalPrice}</h3> 
-      <button onClick={()=>clearCart()}>
+      <Button variant="secondary" onClick={()=>clearCart()}>
           Limpiar carrito
-      </button>
-      <button  onClick={()=>setModal(true)}>
+      </Button>
+      <Button variant="secondary" onClick={()=>setModal(true)}>
           Terminar compra
-      </button>
+      </Button>
       {modal && <Checkout handleClose={handleClose} total={totalPrice} clearCart={clearCart}/>}
     </div>
     </>
